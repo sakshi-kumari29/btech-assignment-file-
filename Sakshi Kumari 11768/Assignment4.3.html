@@ -1,0 +1,87 @@
+3. Describe the concept of Event Delegation and explain the use of 
+addEventListener.
+
+
+Event Delegation
+
+Event Delegation is a JavaScript technique where a single event listener is attached to a parent element instead of attaching separate listeners to each child element. It works because of event bubbling, where an event triggered on a child element propagates (bubbles up) to its parent elements.
+
+This approach improves performance, reduces memory usage, and is especially useful when elements are dynamically added or removed.
+
+How Event Delegation Works
+
+An event occurs on a child element (e.g., a button click)
+
+The event bubbles up to the parent element
+
+The parent’s event listener catches the event
+
+The actual target is identified using event.target
+
+Example:
+
+<ul id="list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+
+document.getElementById("list").addEventListener("click", function(event) {
+    if (event.target.tagName === "LI") {
+        console.log("Clicked:", event.target.innerText);
+    }
+});
+
+
+Here, one listener on <ul> handles clicks for all <li> elements.
+
+addEventListener()
+What is addEventListener?
+
+addEventListener() is a method used to attach an event handler to an element. It allows multiple event handlers for the same event and provides better control than inline event handlers.
+
+Syntax
+element.addEventListener(event, function, useCapture);
+
+
+event: Type of event (e.g., click, mouseover, keydown)
+
+function: Callback function to run when the event occurs
+
+useCapture (optional):
+
+false (default) → event bubbling
+
+true → event capturing
+
+Example of addEventListener
+let btn = document.getElementById("myBtn");
+
+btn.addEventListener("click", function() {
+    alert("Button clicked!");
+});
+
+Why Use Event Delegation with addEventListener?
+Advantages
+
+Fewer event listeners → better performance
+
+Handles dynamically added elements automatically
+
+Cleaner and more maintainable code
+
+Comparison: Without vs With Event Delegation
+Without Event Delegation
+let items = document.querySelectorAll("li");
+items.forEach(item => {
+    item.addEventListener("click", () => {
+        console.log(item.innerText);
+    });
+});
+
+With Event Delegation
+document.querySelector("ul").addEventListener("click", (e) => {
+    if (e.target.matches("li")) {
+        console.log(e.target.innerText);
+    }
+});

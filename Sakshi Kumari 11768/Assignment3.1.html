@@ -1,0 +1,72 @@
+//1. Explain the differences between var, let, and const with respect to 
+scope and hoisting.
+. var
+
+Scope:
+
+Function-scoped, not block-scoped.
+
+A var declared inside a block (if, for, etc.) is accessible outside that block, as long as it’s inside the same function.
+
+if (true) {
+  var x = 10;
+}
+console.log(x); // 10
+
+
+Hoisting:
+
+var declarations are hoisted to the top of their scope.
+
+They are initialized with undefined.
+
+console.log(a); // undefined
+var a = 5;
+
+2. let
+
+Scope:
+
+Block-scoped (limited to the block {} where it is declared).
+
+if (true) {
+  let y = 20;
+}
+console.log(y); // ReferenceError
+
+
+Hoisting:
+
+let is hoisted, but not initialized.
+
+It exists in the Temporal Dead Zone (TDZ) until the declaration is reached.
+
+console.log(b); // ReferenceError
+let b = 10;
+
+3. const
+
+Scope:
+
+Also block-scoped, just like let.
+
+if (true) {
+  const z = 30;
+}
+console.log(z); // ReferenceError
+
+
+Hoisting:
+
+const is hoisted but not initialized, and also has a Temporal Dead Zone.
+
+Must be initialized at the time of declaration.
+
+console.log(c); // ReferenceError
+const c = 15;
+
+Summary Table
+Keyword	Scope	Hoisting Behavior
+var	Function scope	Hoisted and initialized as undefined
+let	Block scope	Hoisted, not initialized (TDZ)
+const	Block scope	Hoisted, not initialized (TDZ)

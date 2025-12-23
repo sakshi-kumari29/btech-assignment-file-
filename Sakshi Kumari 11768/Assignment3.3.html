@@ -1,0 +1,92 @@
+3. What is the Document Object Model (DOM)? Explain how to select 
+elements and modify their content using innerText and innerHTML.
+
+Structure of the DOM
+
+The browser converts an HTML document into a DOM tree
+
+Each HTML tag becomes a node
+
+JavaScript interacts with these nodes to change the webpage
+
+Example:
+
+<p id="demo">Hello</p>
+
+
+Here, <p> is an element node, id is an attribute, and Hello is a text node.
+
+Selecting Elements in the DOM
+
+JavaScript provides several methods to select HTML elements:
+
+1. getElementById()
+
+Selects an element using its id.
+
+let para = document.getElementById("demo");
+
+2. getElementsByClassName()
+
+Selects elements using a class name.
+
+let items = document.getElementsByClassName("box");
+
+3. getElementsByTagName()
+
+Selects elements by tag name.
+
+let headings = document.getElementsByTagName("h1");
+
+4. querySelector()
+
+Selects the first matching element using CSS selectors.
+
+let element = document.querySelector(".box");
+
+5. querySelectorAll()
+
+Selects all matching elements.
+
+let elements = document.querySelectorAll("p");
+
+Modifying Content Using innerText and innerHTML
+1. innerText
+
+Changes or returns only the text content of an element
+
+Ignores HTML tags
+
+Example:
+
+document.getElementById("demo").innerText = "Welcome to JavaScript";
+
+
+Output:
+
+Welcome to JavaScript
+
+2. innerHTML
+
+Changes or returns HTML content, including tags
+
+Allows inserting HTML elements dynamically
+
+Example:
+
+document.getElementById("demo").innerHTML = "<b>Welcome</b> to JavaScript";
+
+
+Output:
+
+Welcome to JavaScript
+
+
+(Welcome appears in bold)
+
+Difference Between innerText and innerHTML
+Feature	innerText	innerHTML
+Works with	Text only	Text + HTML
+HTML tags	Treated as text	Rendered as HTML
+Security risk	Safer	Risky (XSS if misused)
+Use case	Plain text update	Dynamic HTML content

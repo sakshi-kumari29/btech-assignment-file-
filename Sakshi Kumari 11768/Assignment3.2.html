@@ -1,0 +1,115 @@
+ Describe the various Control Flow statements in JavaScript, 
+specifically highlighting the difference between for, while, and do
+while loops. 
+
+1. Types of Control Flow Statements in JavaScript
+A. Conditional (Decision-Making) Statements
+
+Used to execute code based on conditions.
+
+if statement
+Executes code if a condition is true.
+
+if–else statement
+Executes one block if the condition is true, otherwise another block.
+
+else if ladder
+Checks multiple conditions sequentially.
+
+switch statement
+Selects execution paths based on the value of an expression.
+
+B. Looping (Iteration) Statements
+
+Used to repeat a block of code multiple times.
+
+for loop
+
+while loop
+
+do–while loop
+
+(These are explained in detail below.)
+
+C. Jump / Control Transfer Statements
+
+Used to change the normal flow of execution.
+
+break – exits a loop or switch
+
+continue – skips the current iteration and continues with the next
+
+return – exits a function and returns a value
+
+2. Difference Between for, while, and do–while Loops
+1. for Loop
+
+Used when the number of iterations is known.
+
+Initialization, condition, and increment/decrement are written in one line.
+
+Condition is checked before executing the loop body.
+
+Syntax:
+
+for (initialization; condition; increment/decrement) {
+    // code to be executed
+}
+
+
+Example:
+
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+
+2. while Loop
+
+Used when the number of iterations is not fixed.
+
+Condition is checked before executing the loop body.
+
+Initialization is done outside the loop.
+
+Syntax:
+
+while (condition) {
+    // code to be executed
+}
+
+
+Example:
+
+let i = 1;
+while (i <= 5) {
+    console.log(i);
+    i++;
+}
+
+3. do–while Loop
+
+Similar to the while loop, but the condition is checked after executing the loop body.
+
+The loop body executes at least once, even if the condition is false.
+
+Syntax:
+
+do {
+    // code to be executed
+} while (condition);
+
+
+Example:
+
+let i = 1;
+do {
+    console.log(i);
+    i++;
+} while (i <= 5);
+
+3. Key Differences (Comparison Table)
+Feature	for Loop	while Loop	do–while Loop
+Condition check	Before loop	Before loop	After loop
+Guaranteed execution	No	No	Yes (at least once)
+Best use case	Known number of iterations	Unknown iterations	Execute at least once
+Initialization	Inside loop	Outside loop	Outside loop

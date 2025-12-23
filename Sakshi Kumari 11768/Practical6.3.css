@@ -1,0 +1,16 @@
+/*Heading style */ 
+h1{
+    color:brown;
+    text-align:center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+} 
+/*paragraph style*/
+p{
+    font-size:larger;
+    color:purple;
+    line-height:2.4px;
+}
+a{
+        color:pink;
+        text-decoration:solid;
+    }

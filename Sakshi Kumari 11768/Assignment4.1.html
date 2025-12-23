@@ -1,0 +1,94 @@
+1. Explain Array methods in JavaScript. Specifically, demonstrate how 
+push(), pop(), shift(), and unshift() modify an array.
+
+Basic Array Methods
+1. push()
+
+Adds one or more elements to the end of an array
+
+Returns the new length of the array
+
+Modifies the original array
+
+Example:
+
+let arr = [10, 20, 30];
+arr.push(40);
+
+console.log(arr);
+
+
+Output:
+
+[10, 20, 30, 40]
+
+2. pop()
+
+Removes the last element from an array
+
+Returns the removed element
+
+Modifies the original array
+
+Example:
+
+let arr = [10, 20, 30];
+let removed = arr.pop();
+
+console.log(arr);
+console.log(removed);
+
+
+Output:
+
+[10, 20]
+30
+
+3. unshift()
+
+Adds one or more elements to the beginning of an array
+
+Returns the new length of the array
+
+Modifies the original array
+
+Example:
+
+let arr = [20, 30, 40];
+arr.unshift(10);
+
+console.log(arr);
+
+
+Output:
+
+[10, 20, 30, 40]
+
+4. shift()
+
+Removes the first element from an array
+
+Returns the removed element
+
+Modifies the original array
+
+Example:
+
+let arr = [10, 20, 30];
+let removed = arr.shift();
+
+console.log(arr);
+console.log(removed);
+
+
+Output:
+
+[20, 30]
+10
+
+Summary Table
+Method	Operation	Position	Returns	Original Array
+push()	Add element(s)	End	New length	Modified
+pop()	Remove element	End	Removed element	Modified
+unshift()	Add element(s)	Beginning	New length	Modified
+shift()	Remove element	Beginning	Removed element	Modified

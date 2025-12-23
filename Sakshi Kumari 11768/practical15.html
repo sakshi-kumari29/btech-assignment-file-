@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation Example</title>
+    <style>
+        #message { font-size: 20px; color: blue; margin-top: 10px; }
+        .title { font-size: 24px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<h2 class="title">DOM Manipulation Demo</h2>
+
+<p id="message">This text will be changed using JavaScript.</p>
+
+<button onclick="changeText()">Change Text</button>
+<button onclick="changeColor()">Change Color</button>
+<button onclick="addNewContent()">Add New Content</button>
+
+<script>
+
+// ------------------------------------
+// 1. Using getElementById()
+// ------------------------------------
+function changeText() {
+    const msg = document.getElementById("message");
+    msg.innerHTML = "✔ The text has been changed using <b>getElementById()</b>!";
+}
+
+
+// ------------------------------------
+// 2. Using querySelector()
+// ------------------------------------
+function changeColor() {
+    const title = document.querySelector(".title");  // selects first element with class "title"
+    title.style.color = "green";
+}
+
+
+// ------------------------------------
+// 3. Changing HTML content using innerHTML
+// ------------------------------------
+function addNewContent() {
+    const body = document.querySelector("body");
+    body.innerHTML += "<p style='color:red;'>New content added using <b>innerHTML</b>!</p>";
+}
+
+</script>
+
+</body>
+</html>

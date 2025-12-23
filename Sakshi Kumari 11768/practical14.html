@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation Example</title>
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input { padding: 8px; width: 250px; display: block; margin-bottom: 10px; }
+        .error { color: red; font-size: 14px; }
+    </style>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="myForm" onsubmit="return validateForm()">
+    
+    <label>Username:</label>
+    <input type="text" id="username" oninput="checkUsername()">
+    <span id="usernameError" class="error"></span>
+
+    <label>Email:</label>
+    <input type="text" id="email" oninput="checkEmail()">
+    <span id="emailError" class="error"></span>
+
+    <label>Password:</label>
+    <input type="password" id="password" oninput="checkPassword()">
+    <span id="passwordError" class="error"></span>
+
+    <button type="submit">Submit</button>
+</form>
+
+
+<script>
+
+// ---------------------------
+// Validate ON SUBMIT
+// ---------------------------
+function validateForm() {
+    let isValid = true;
+
+    // Check username
+    if (document.getElementById("username").value.trim() === "") {
+        alert("Username cannot be empty!");
+        isValid = false;
+    }
+
+    // Check email format
+    let email = document.getElementById("email").value;
+    if (!email.includes("@") || !email.includes(".")) {
+        alert("Enter a valid email address!");
+        isValid = false;
+    }
+
+    // Check password length
+    let password = document.getElementById("password").value;
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long!");
+        isValid = false;
+    }
+
+    return isValid; // if false → form will NOT submit
+}
+
+
+// ---------------------------
+// Real-time validation using ONINPUT
+// ---------------------------
+
+function checkUsername() {
+    let username = document.getElementById("username").value;
+    let errorMsg = document.getElementById("usernameError");
+
+    errorMsg.textContent = username.trim() === "" 
+        ? "Username is required." 
+        : "";
+}
+
+function checkEmail() {
+    let email = document.getElementById("email").value;
+    let errorMsg = document.getElementById("emailError");
+
+    errorMsg.textContent = (!email.includes("@") || !email.includes(".")) 
+        ? "Invalid email format." 
+        : "";
+}
+
+function checkPassword() {
+    let password = document.getElementById("password").value;
+    let errorMsg = document.getElementById("passwordError");
+
+    errorMsg.textContent = password.length < 6
+        ? "Password must be at least 6 characters."
+        : "";
+}
+
+</script>
+
+</body>
+</html>

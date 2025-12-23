@@ -1,0 +1,101 @@
+2. What are Promises in JavaScript, and how do async/await simplify 
+working with asynchronous code?
+
+Promises in JavaScript
+
+In JavaScript, a Promise is an object that represents the eventual completion or failure of an asynchronous operation. It acts as a placeholder for a value that will be available in the future.
+
+A Promise can be in three states:
+
+Pending – initial state, operation not completed
+
+Fulfilled – operation completed successfully
+
+Rejected – operation failed
+
+Creating a Promise
+let promise = new Promise((resolve, reject) => {
+    let success = true;
+
+    if (success) {
+        resolve("Operation successful");
+    } else {
+        reject("Operation failed");
+    }
+});
+
+Consuming a Promise (then & catch)
+promise
+  .then(result => {
+      console.log(result);
+  })
+  .catch(error => {
+      console.log(error);
+  });
+
+Problem with Traditional Promises
+
+Chaining multiple .then() calls can make code hard to read
+
+Error handling becomes complex
+
+Leads to callback-like complexity
+
+async / await in JavaScript
+
+async/await is a modern syntax built on top of Promises that makes asynchronous code look and behave like synchronous code, improving readability and maintainability.
+
+async
+
+Used before a function
+
+Always returns a Promise
+
+async function fetchData() {
+    return "Data received";
+}
+
+await
+
+Pauses the execution of the function until the Promise is resolved
+
+Can only be used inside an async function
+
+async function getData() {
+    let result = await promise;
+    console.log(result);
+}
+
+Example: Promise vs async/await
+Using Promises
+fetchData()
+  .then(data => {
+      return processData(data);
+  })
+  .then(result => {
+      console.log(result);
+  })
+  .catch(error => {
+      console.log(error);
+  });
+
+Using async/await
+async function process() {
+    try {
+        let data = await fetchData();
+        let result = await processData(data);
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+Advantages of async/await
+
+Cleaner and more readable code
+
+Easier error handling using try...catch
+
+Avoids deep .then() chaining
+
+Makes debugging simpler
